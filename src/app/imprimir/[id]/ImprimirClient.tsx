@@ -15,7 +15,7 @@ interface Props {
 export default function ImprimirClient({ data }: Props) {
   useEffect(() => {
     document.title = `Proposta - ${data.clientName || 'Digital RBS'}`
-    const timer = setTimeout(() => window.print(), 1500)
+    const timer = setTimeout(() => window.print(), 2500)
     return () => clearTimeout(timer)
   }, [data.clientName])
 
@@ -42,6 +42,9 @@ export default function ImprimirClient({ data }: Props) {
         }
 
         body {
+          display: block !important;
+          min-height: auto !important;
+          flex-direction: unset !important;
           width: 297mm;
           margin: 0;
           padding: 0;
