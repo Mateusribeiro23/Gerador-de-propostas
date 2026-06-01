@@ -42,9 +42,6 @@ export default function ImprimirClient({ data }: Props) {
         }
 
         body {
-          display: block !important;
-          min-height: auto !important;
-          flex-direction: unset !important;
           width: 297mm;
           margin: 0;
           padding: 0;
