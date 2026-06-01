@@ -29,19 +29,11 @@ export default function ImprimirClient({ data }: Props) {
         }
 
         @page {
-          size: 297mm 210mm;
-          margin: 0mm;
+          size: A4 landscape;
+          margin: 0;
         }
 
-        html {
-          width: 297mm;
-          background: #0D0D0D;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-
-        body {
+        html, body {
           width: 297mm;
           margin: 0;
           padding: 0;
