@@ -77,9 +77,7 @@ export default function ProposalForm({ initialData, proposalId }: Props) {
       }
       setSaving(false)
     }
-    toast.loading('Gerando PDF...', { id: 'pdf' })
-    window.location.href = `/api/pdf/${id}?name=${encodeURIComponent(data.clientName)}`
-    setTimeout(() => toast.dismiss('pdf'), 3000)
+    window.open(`/imprimir/${id}`, '_blank')
   }
 
   function update<K extends keyof ProposalData>(key: K, value: ProposalData[K]) {
