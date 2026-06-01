@@ -15,8 +15,17 @@ interface Props {
 export default function ImprimirClient({ data }: Props) {
   useEffect(() => {
     document.title = `Proposta - ${data.clientName || 'Digital RBS'}`
+
+    // Inject @page rule into <head> — body-level <style> tags are ignored for @page in some browsers
+    const pageStyle = document.createElement('style')
+    pageStyle.textContent = '@page { size: A4 landscape; margin: 0; }'
+    document.head.appendChild(pageStyle)
+
     const timer = setTimeout(() => window.print(), 2500)
-    return () => clearTimeout(timer)
+    return () => {
+      clearTimeout(timer)
+      document.head.removeChild(pageStyle)
+    }
   }, [data.clientName])
 
   return (
